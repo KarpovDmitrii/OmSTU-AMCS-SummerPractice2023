@@ -28,6 +28,7 @@ public class SquareEquation
             return answer;
         }
         else
+        
         {
             answer = new double[2];
             answer[0] = -(b + Math.Sign(b) * Math.Sqrt(discriminant)) / 2;
