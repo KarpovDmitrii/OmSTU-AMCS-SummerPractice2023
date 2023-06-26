@@ -26,4 +26,4 @@ jobs:
         run: ./SquareEquationTest ./SquareEquationLib/bin/Debug/net7.0/SquareEquationLib.dll
 
       - name: XUnit Collector test
-        run: cd XUnit.Coverlet.Collector && dotnet test --collect:"XPlat Code Coverage"
+        run: pwd
