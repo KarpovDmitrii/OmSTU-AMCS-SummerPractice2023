@@ -32,4 +32,4 @@ jobs:
         run: cd XUnit.Coverlet.Collector && dotnet test --collect:"XPlat Code Coverage"
 
       - name: DBB test
-        run: cd XUnit.Tests && dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura
+        run: cd XUnit.Tests && dotnet test
