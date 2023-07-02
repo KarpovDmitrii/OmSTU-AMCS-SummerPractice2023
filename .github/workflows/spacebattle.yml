@@ -2,7 +2,7 @@ name: spacebattle test
 
 on:
   push:
-    branches: ["space/solution"]
+    branches: ["zadanie_8"]
 
 jobs:
   build:
