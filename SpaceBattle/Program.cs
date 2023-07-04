@@ -72,11 +72,37 @@ public class Program
 
     public static List<dynamic> CalculateGPAByDiscipline(List<Student> students)
     {
+        var disciplines_with_all_marks = students.GroupBy(p => p.Discipline).Select(g => new
+        {
+            Discipline = g.Key,
+            Marks = g.Select(p => p.Mark).ToArray()
+        });
 
+        var total = disciplines_with_all_marks.Select(p => new
+        {
+            Discipline = p.Discipline,
+            Mark = Math.Round(p.Marks.Sum() / p.Marks.Length, 3)
+        });
+
+        List<dynamic> exit_list = total.ToList<dynamic>();
+        return exit_list;
     }
 
     public static List<dynamic> GetBestGroupsByDiscipline(List<Student> students)
     {
-
+        var best_group = students.GroupBy(p => new { Discipline = p.Discipline,
+         Group = p.Group }).Select(g => new
+        {
+            Discipline = g.Key.Discipline,
+            Group = g.Key.Group,
+            Mark = g.Average(v => v.Mark)
+        }).GroupBy(p => p.Discipline)
+            .Select(q => new
+            {
+                Discipline = q.Key,
+                Group = q.Where(k => k.Mark == q.Max(z => z.Mark)).Select(k => k.Group).ToArray()[0],
+                GPA = q.Max(k => k.Mark)
+            }).ToList<dynamic>();
+        return best_group;
     }
 }
