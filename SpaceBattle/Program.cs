@@ -52,7 +52,22 @@ public class Program
 
     public static List<dynamic> GetStudentsWithHighestGPA(List<Student> students)
     {
+        var students_with_all_marks = students.GroupBy(p => p.Name).Select(g => new
+        {
+            Name = g.Key,
+            Marks = g.Select(p => p.Mark).ToArray()
+        });
 
+        double HighestGpa = students_with_all_marks.Max(student => (student.Marks.Sum()) /
+         student.Marks.Length);
+        var total = students_with_all_marks.Where(student => (student.Marks.Sum()) /
+         student.Marks.Length == HighestGpa).Select(student => new
+        {
+            Name = student.Name,
+            Mark = Math.Round((student.Marks.Sum()/ student.Marks.Length),2)
+        });
+        List<dynamic> exit_list = total.ToList<dynamic>();
+        return exit_list;
     }
 
     public static List<dynamic> CalculateGPAByDiscipline(List<Student> students)
