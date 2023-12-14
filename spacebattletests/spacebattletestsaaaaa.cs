@@ -16,6 +16,7 @@ namespace spacebattletests
         {
             scenario_Context = scenarioContext;
         }
+        
 
 
         [Given(@"космический корабль находится в точке пространства с координатами \((.*), (.*)\)")]
