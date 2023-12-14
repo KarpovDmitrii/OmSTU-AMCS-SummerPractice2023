@@ -48,14 +48,11 @@ namespace spacebattletests
             isKnowSpeed = false;
         }
 
-
         [Given(@"изменить положение в пространстве космического корабля невозможно")]
         public void изменить_положение_в_пространстве_космического_корабля_невозможно()
         {
             isCanMove = false;
         }
-
-
         [When(@"происходит прямолинейное равномерное движение без деформации")]
         public void происходит_прямолинейное_равномерное_движениебез_деформации()
         {
@@ -65,8 +62,6 @@ namespace spacebattletests
             }
             catch{}
         }
-
-
         [Then(@"космический корабль перемещается в точку пространства с координатами \((.*), (.*)\)")]
         public void космический_корабль_перемещается_в_точку_пространства_с_координатами
         (double p0, double p1)
@@ -81,8 +76,6 @@ namespace spacebattletests
             Assert.Throws<Exception>(() => SpaceShip.Move(isCanMove, isKnowSpeed,
             isKnowPosition, speed, start));
         }
-
-
 
     }
 }
