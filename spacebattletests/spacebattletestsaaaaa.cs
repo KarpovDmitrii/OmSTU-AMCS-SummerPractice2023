@@ -45,7 +45,9 @@ namespace spacebattletests
         [Given(@"скорость корабля определить невозможно")]
         public void скорость_корабля_определить_невозможно()
         {
+            
             isKnowSpeed = false;
+
         }
 
 
