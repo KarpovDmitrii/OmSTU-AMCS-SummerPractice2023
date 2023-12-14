@@ -78,11 +78,20 @@ namespace spacebattletests
         [Then(@"возникает ошибка Exception")]
         public void возникает_ошибка_Exception ()
         {
+
+
+            
             Assert.Throws<Exception>(() => SpaceShip.Move(isCanMove, isKnowSpeed,
             isKnowPosition, speed, start));
+
+
         }
 
 
 
     }
+
+
+
 }
+
